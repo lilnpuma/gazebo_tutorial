@@ -23,6 +23,19 @@ foreach(Dependency IN ITEMS ${THIS_PACKAGE_INCLUDE_DEPENDS})
   find_package(${Dependency} REQUIRED)
 endforeach()
 
+include_directories(include/simple_turtle)
+
+add_executable(controller src/controller_node.cpp  src/controller.cpp)
+ament_target_dependencies(controller rclcpp  geometry_msgs tf2 sensor_msgs nav_msgs)
+
+install(TARGETS
+  controller
+  DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch worlds
+  DESTINATION share/${PROJECT_NAME}/
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
