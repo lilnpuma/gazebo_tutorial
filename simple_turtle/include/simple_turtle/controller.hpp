@@ -39,7 +39,7 @@
 #define RAD2DEG (180.0 / M_PI)
 #define DEG2RAD (M_PI / 180.0)
 
-namespace Simpleturt {
+namespace testudo {
 class Simpleturt : public rclcpp::Node {
  public:
   /// @brief Constructor for the Simpleturt class
@@ -76,6 +76,6 @@ class Simpleturt : public rclcpp::Node {
   rclcpp::TimerBase::SharedPtr rotate_timer_;
   bool reverse_;
 };
-};  // namespace Simpleturt
+};  // namespace testudo
 
 #endif  // SIMPLE_TURTLE_INCLUDE_SIMPLE_TURTLE_CONTROLLER_HPP_
