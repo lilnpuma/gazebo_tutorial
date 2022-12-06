@@ -19,7 +19,7 @@ def generate_launch_description():
     bag_file_arg = launch.actions.DeclareLaunchArgument('bag_file', default_value='recorder'+str(time.time())+'.bag')
     replay_only_arg = launch.actions.DeclareLaunchArgument('replay_only', default_value='False')
     record_enabled_arg = launch.actions.DeclareLaunchArgument('record_enabled', default_value='False')
-    world_args = launch.actions.DeclareLaunchArgument('world', default_value=os.path.join(package_file_dir, 'worlds/sample_world.world'))
+    world_args = launch.actions.DeclareLaunchArgument('world', default_value=os.path.join(package_file_dir, 'worlds/maze_world2.world'))
 
     use_sim_time = launch.substitutions.LaunchConfiguration('use_sim_time', default='true')
     x_pose = launch.substitutions.LaunchConfiguration('x_pose', default='0.0')
