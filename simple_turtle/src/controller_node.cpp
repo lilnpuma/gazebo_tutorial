@@ -28,7 +28,7 @@
  *
  */
 
-#include "controller.hpp"
+#include "../include/simple_turtle/controller.hpp"
 
 int main(int argc, char **argv) {
   rclcpp::init(argc, argv);

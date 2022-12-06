@@ -27,9 +27,10 @@
  * SOFTWARE.
  *
  */
-#ifndef CONTROLLER_HPP_
-#define CONTROLLER_HPP_
+#ifndef SIMPLE_TURTLE_INCLUDE_SIMPLE_TURTLE_CONTROLLER_HPP_
+#define SIMPLE_TURTLE_INCLUDE_SIMPLE_TURTLE_CONTROLLER_HPP_
 #include <chrono>
+#include <string>
 
 #include "geometry_msgs/msg/twist.hpp"
 #include "rclcpp/rclcpp.hpp"
@@ -40,10 +41,10 @@
 
 namespace Simpleturt {
 class Simpleturt : public rclcpp::Node {
-public:
+ public:
   /// @brief Constructor for the Simpleturt class
   /// @param name
-  Simpleturt(std::string name);
+  explicit Simpleturt(std::string name);
   /// @brief Destructor for the Simpleturt class
   ~Simpleturt();
   /// @brief Callback function for the laser scan subscriber
@@ -60,7 +61,7 @@ public:
   /// @brief
   void stop();
 
-private:
+ private:
   /// @brief
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr pub_;
   /// @brief
@@ -75,6 +76,6 @@ private:
   rclcpp::TimerBase::SharedPtr rotate_timer_;
   bool reverse_;
 };
-}; // namespace Simpleturt
+};  // namespace Simpleturt
 
-#endif /* CONTROLLER_HPP_ */
+#endif  // SIMPLE_TURTLE_INCLUDE_SIMPLE_TURTLE_CONTROLLER_HPP_

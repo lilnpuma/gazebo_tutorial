@@ -28,11 +28,12 @@
  *
  */
 
-#include "controller.hpp"
+#include "../include/simple_turtle/controller.hpp"
 
 #include <numeric>
 
-testudo::Simpleturt::Simpleturt(std::string name = "SimpleTestudo") : Node(name) {
+testudo::Simpleturt::Simpleturt(std::string name = "SimpleTestudo")
+    : Node(name) {
   // Create a publisher object.
   pub_ = this->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
   // Create a subscriber object.
@@ -40,8 +41,8 @@ testudo::Simpleturt::Simpleturt(std::string name = "SimpleTestudo") : Node(name)
       "/scan", 10,
       std::bind(&Simpleturt::scanCallback, this, std::placeholders::_1));
   // Create a timer.
-  pub_timer_ = this->create_wall_timer(std::chrono::milliseconds(10),
-                                       std::bind(&Simpleturt::moveForward, this));
+  pub_timer_ = this->create_wall_timer(
+      std::chrono::milliseconds(10), std::bind(&Simpleturt::moveForward, this));
   rotate_timer_ = this->create_wall_timer(std::chrono::milliseconds(10),
                                           std::bind(&Simpleturt::rotate, this));
   // Cancel the rotation timer. Start with only the forward motion.
